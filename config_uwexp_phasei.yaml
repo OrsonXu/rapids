@@ -3,11 +3,31 @@
 ########################################################################################################################
 
 # See https://www.rapids.science/latest/setup/configuration/#participant-files
-PIDS: ['UW_001', 'UW_002', 'UW_003', 'UW_004', 'UW_005', 'UW_006', 'UW_007', 'UW_008', 'UW_009', 'UW_010', 'UW_011', 'UW_012', 'UW_013', 'UW_014', 'UW_015', 'UW_016', 'UW_017', 'UW_018', 'UW_019', 'UW_020', 'UW_021', 'UW_022', 'UW_023', 'UW_024', 'UW_025', 'UW_026', 'UW_027', 'UW_028', 'UW_029', 'UW_030', 'UW_031', 'UW_032', 'UW_033', 'UW_034', 'UW_035', 'UW_036', 'UW_037', 'UW_038', 'UW_039', 'UW_040', 'UW_042', 'UW_043', 'UW_044', 'UW_045', 'UW_046', 'UW_047', 'UW_048', 'UW_049', 'UW_050', 'UW_051', 'UW_052', 'UW_053', 'UW_054', 'UW_055', 'UW_057', 'UW_058', 'UW_059', 'UW_060', 'UW_061', 'UW_062', 'UW_063', 'UW_064', 'UW_065', 'UW_066', 'UW_067', 'UW_068', 'UW_069', 'UW_070', 'UW_071', 'UW_072', 'UW_073', 'UW_074', 'UW_075', 'UW_076', 'UW_077', 'UW_078', 'UW_079', 'UW_080', 'UW_081', 'UW_082', 'UW_083', 'UW_084', 'UW_086', 'UW_087', 'UW_088', 'UW_089', 'UW_090', 'UW_091', 'UW_092', 'UW_093', 'UW_094', 'UW_095', 'UW_096', 'UW_097', 'UW_098', 'UW_099', 'UW_100', 'UW_101', 'UW_102', 'UW_103', 'UW_104', 'UW_105', 'UW_106', 'UW_108', 'UW_109', 'UW_110', 'UW_111', 'UW_112', 'UW_113', 'UW_114', 'UW_115', 'UW_116', 'UW_117', 'UW_118', 'UW_119', 'UW_120', 'UW_121', 'UW_122', 'UW_123', 'UW_124', 'UW_125', 'UW_126', 'UW_127', 'UW_128', 'UW_130', 'UW_132', 'UW_133', 'UW_134', 'UW_135', 'UW_136', 'UW_137', 'UW_138', 'UW_140', 'UW_141', 'UW_142', 'UW_143', 'UW_144', 'UW_145', 'UW_146', 'UW_147', 'UW_148', 'UW_149', 'UW_150', 'UW_151', 'UW_152', 'UW_153', 'UW_154', 'UW_155', 'UW_156', 'UW_157', 'UW_158', 'UW_159', 'UW_160', 'UW_161', 'UW_162', 'UW_163', 'UW_165', 'UW_166', 'UW_167', 'UW_168', 'UW_169', 'UW_170', 'UW_171', 'UW_172', 'UW_173', 'UW_174', 'UW_175', 'UW_176', 'UW_177', 'UW_178', 'UW_179', 'UW_180', 'UW_181', 'UW_182', 'UW_183', 'UW_184', 'UW_185', 'UW_186', 'UW_187', 'UW_188', 'UW_189', 'UW_190', 'UW_191', 'UW_192', 'UW_193', 'UW_194', 'UW_195', 'UW_196', 'UW_197', 'UW_198', 'UW_199', 'UW_200', 'UW_201', 'UW_202', 'UW_203', 'UW_204', 'UW_205', 'UW_206', 'UW_207', 'UW_208', 'UW_209']
+# UWEXP Phase I
+# PIDS: ['UW_001','UW_002','UW_003','UW_004','UW_005','UW_006','UW_007','UW_008','UW_009','UW_010','UW_011','UW_012',
+#   'UW_013','UW_014','UW_015','UW_016','UW_018','UW_019','UW_020','UW_021','UW_022','UW_023','UW_024', # 'UW_017', taken out for now
+#   'UW_025','UW_026','UW_027','UW_028','UW_029','UW_030','UW_031','UW_032','UW_033','UW_034','UW_035','UW_036',
+#   'UW_037','UW_038','UW_039','UW_040','UW_042','UW_043','UW_044','UW_045','UW_046','UW_048','UW_049', # 'UW_047', taken out for now
+#   'UW_050','UW_051','UW_052','UW_053','UW_054','UW_055','UW_057','UW_058','UW_060','UW_061','UW_062', # 'UW_059', taken out for now
+#   'UW_063','UW_064','UW_065','UW_066','UW_068','UW_069','UW_070','UW_071','UW_072','UW_073','UW_074', # 'UW_067', taken out for now
+#   'UW_075','UW_076','UW_077','UW_078','UW_079','UW_080','UW_081','UW_082','UW_083','UW_084','UW_086','UW_087',
+#   'UW_088','UW_089','UW_090','UW_091','UW_092','UW_093','UW_094','UW_095','UW_096','UW_097','UW_098','UW_099',
+#   'UW_100','UW_101','UW_102','UW_103','UW_104','UW_105','UW_106','UW_108','UW_109','UW_110','UW_111','UW_112',
+#   'UW_113','UW_114','UW_115','UW_116','UW_117','UW_118','UW_119','UW_120','UW_121','UW_122','UW_123','UW_124',
+#   'UW_125','UW_126','UW_127','UW_128','UW_130','UW_132','UW_133','UW_134','UW_135','UW_136','UW_137','UW_138',
+#   'UW_140','UW_141','UW_142','UW_143','UW_144','UW_145','UW_146','UW_147','UW_148','UW_149','UW_150','UW_151',
+#   'UW_152','UW_153','UW_154','UW_155','UW_156','UW_157','UW_158','UW_159','UW_160','UW_161','UW_162','UW_163',
+#   'UW_165','UW_166','UW_167','UW_168','UW_169','UW_170','UW_171','UW_172','UW_173','UW_174','UW_175','UW_176',
+#   'UW_177','UW_178','UW_179','UW_180','UW_181','UW_182','UW_183','UW_184','UW_185','UW_186','UW_187','UW_188',
+#   'UW_189','UW_190','UW_191','UW_192','UW_193','UW_194','UW_195','UW_196','UW_197','UW_198','UW_199','UW_200',
+#   'UW_201','UW_202','UW_203','UW_204','UW_205','UW_206','UW_207','UW_208','UW_209',]
+
+PIDS: ['UW_001']
 
 # See https://www.rapids.science/latest/setup/configuration/#automatic-creation-of-participant-files
 CREATE_PARTICIPANT_FILES:
-  CSV_FILE_PATH: "data/external/example_participants.csv" # see docs for required format
+  CSV_FILE_PATH: "data/external/participants_file_uwexp1.csv" # see docs for required format
+  # CSV_FILE_PATH: "data/external/participants_file_uwexp2.csv" # see docs for required format
   PHONE_SECTION:
     ADD: True
     IGNORED_DEVICE_IDS: []
@@ -21,18 +41,18 @@ CREATE_PARTICIPANT_FILES:
 # See https://www.rapids.science/latest/setup/configuration/#time-segments
 TIME_SEGMENTS: &time_segments
   TYPE: PERIODIC # FREQUENCY, PERIODIC, EVENT
-  FILE: "data/external/timesegments_periodic.csv"
+  FILE: "data/external/timesegments_periodic_uwexp.csv"
   INCLUDE_PAST_PERIODIC_SEGMENTS: FALSE # Only relevant if TYPE=PERIODIC, see docs
 
 # See https://www.rapids.science/latest/setup/configuration/#timezone-of-your-study
 TIMEZONE: 
     TYPE: SINGLE
     SINGLE:
-      TZCODE: America/New_York
+      TZCODE: America/Los_Angeles
     MULTIPLE:
       TZCODES_FILE: data/external/multiple_timezones_example.csv
       IF_MISSING_TZCODE: STOP
-      DEFAULT_TZCODE: America/New_York
+      DEFAULT_TZCODE: America/Los_Angeles
       FITBIT: 
         ALLOW_MULTIPLE_TZ_PER_DEVICE: False
         INFER_FROM_SMARTPHONE_TZ: False
@@ -47,7 +67,8 @@ PHONE_DATA_STREAMS:
   
   # AVAILABLE:
   aware_mysql: 
-    DATABASE_GROUP: MY_GROUP
+    DATABASE_GROUP: uwexp_phase1
+    # DATABASE_GROUP: uwexp_phase2
 
   aware_csv:
     FOLDER: data/external/aware_csv
@@ -209,12 +230,12 @@ PHONE_CONVERSATION:
 
 # See https://www.rapids.science/latest/features/phone-data-yield/
 PHONE_DATA_YIELD:
-  SENSORS: []
+  SENSORS: [PHONE_LOCATIONS]
   PROVIDERS:
     RAPIDS:
       COMPUTE: False
       FEATURES: [ratiovalidyieldedminutes, ratiovalidyieldedhours]
-      MINUTE_RATIO_THRESHOLD_FOR_VALID_YIELDED_HOURS: 0.5 # 0 to 1, minimum percentage of valid minutes in an hour to be considered valid.
+      MINUTE_RATIO_THRESHOLD_FOR_VALID_YIELDED_HOURS: 0.08 # 0 to 1, minimum percentage of valid minutes in an hour to be considered valid.
       SRC_SCRIPT: src/features/phone_data_yield/rapids/main.R
 
 # See https://www.rapids.science/latest/features/phone-keyboard/
@@ -265,6 +286,12 @@ PHONE_LOCATIONS:
       IF_MULTIPLE_TIMEZONES: USE_MOST_COMMON
       MINUTES_DATA_USED: False # Use this for quality control purposes, how many minutes of data (location coordinates gruped by minute) were used to compute features
       SRC_SCRIPT: src/features/phone_locations/barnett/main.R
+    
+    LOCMAP:
+      COMPUTE: True
+      FEATURES: ["timeinmap"]
+      SRC_SCRIPT: src/features/phone_locations/locmap/main.py
+      
 
 # See https://www.rapids.science/latest/features/phone-log/
 PHONE_LOG:
@@ -317,7 +344,6 @@ PHONE_WIFI_VISIBLE:
       SRC_SCRIPT: src/features/phone_wifi_visible/rapids/main.R
 
 
-
 ########################################################################################################################
 #                                                 FITBIT                                                               #
 ########################################################################################################################
@@ -328,7 +354,8 @@ FITBIT_DATA_STREAMS:
   
   # AVAILABLE:
   fitbitjson_mysql: 
-    DATABASE_GROUP: MY_GROUP
+    DATABASE_GROUP: uwexp_phase1
+    # DATABASE_GROUP: uwexp_phase2
     SLEEP_SUMMARY_LAST_NIGHT_END: 660 # a number ranged from 0 (midnight) to 1439 (23:59) which denotes number of minutes after midnight. By default, 660 (11:00).
   
   fitbitparsed_mysql: 
@@ -400,7 +427,7 @@ FITBIT_SLEEP_SUMMARY:
 
 # See https://www.rapids.science/latest/features/fitbit-sleep-intraday/
 FITBIT_SLEEP_INTRADAY:
-  CONTAINER: sleep_intraday
+  CONTAINER: fitbit_api_sleep
   PROVIDERS:
     RAPIDS:
       COMPUTE: False
@@ -439,12 +466,12 @@ FITBIT_STEPS_SUMMARY:
 
 # See https://www.rapids.science/latest/features/fitbit-steps-intraday/
 FITBIT_STEPS_INTRADAY:
-  CONTAINER: steps_intraday
+  CONTAINER: fitbit_api_step
   EXCLUDE_SLEEP: # you can exclude step data that was logged during sleep periods
     TIME_BASED:
       EXCLUDE: False
-      START_TIME: "23:00"
-      END_TIME: "07:00"
+      START_TIME: "23:30"
+      END_TIME: "06:00"
     FITBIT_BASED:
       EXCLUDE: False
   PROVIDERS:
@@ -563,4 +590,3 @@ HEATMAP_FEATURE_CORRELATION_MATRIX:
   MIN_ROWS_RATIO: 0.5
   CORR_THRESHOLD: 0.1
   CORR_METHOD: "pearson" # choose from {"pearson", "kendall", "spearman"}
-
