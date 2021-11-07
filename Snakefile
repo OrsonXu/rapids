@@ -1,6 +1,6 @@
 from snakemake.utils import validate
-# configfile: "config.yaml"
-configfile: "config_uwexp_phasei.yaml"
+configfile: "config_test.yaml"
+# configfile: "config_uwexp_phasei.yaml"
 validate(config, "tools/config.schema.yaml")
 include: "rules/common.smk"
 include: "rules/renv.smk"
@@ -220,6 +220,8 @@ for provider in config["PHONE_LOCATIONS"]["PROVIDERS"].keys():
         if provider == "DORYAB":
             files_to_compute.extend(expand("data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes.csv", pid=config["PIDS"]))
             files_to_compute.extend(expand("data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes_resampled_with_datetime.csv", pid=config["PIDS"]))
+        if provider == "LOCMAP":
+            files_to_compute.extend(expand("data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes_resampled_with_datetime_with_locmap_columns.csv", pid=config["PIDS"]))
 
         files_to_compute.extend(expand("data/raw/{pid}/phone_locations_raw.csv", pid=config["PIDS"]))
         files_to_compute.extend(expand("data/interim/{pid}/phone_locations_processed.csv", pid=config["PIDS"]))

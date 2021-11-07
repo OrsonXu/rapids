@@ -386,6 +386,17 @@ rule phone_locations_add_doryab_extra_columns:
     script:
         "../src/features/phone_locations/doryab/add_doryab_extra_columns.py"
 
+rule phone_locations_add_locmap_extra_columns:
+    input:
+        sensor_input = "data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes_resampled_with_datetime.csv",
+    params:
+        provider = config["PHONE_LOCATIONS"]["PROVIDERS"]["LOCMAP"],
+        provider_doryab = config["PHONE_LOCATIONS"]["PROVIDERS"]["DORYAB"]
+    output: 
+        "data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes_resampled_with_datetime_with_locmap_columns.csv"
+    script:
+        "../src/features/phone_locations/locmap/add_locmap_extra_columns.py"
+
 rule phone_locations_python_features:
     input:
         sensor_data = get_locations_python_input,
