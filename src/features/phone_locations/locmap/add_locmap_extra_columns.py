@@ -58,7 +58,7 @@ identifier = provider["IDENTIFIER"]
 locmap_types = provider["TYPES"]
 radius_from_home = provider_doryab["RADIUS_FOR_HOME"]
 
-base_locmap_types = ["study","exercise","greens"]
+base_locmap_types = ["study","exercise","greens","living"]
 locmaps_to_compute = list(set(locmap_types) & set(base_locmap_types))
 
 for locmap_type in locmaps_to_compute:
