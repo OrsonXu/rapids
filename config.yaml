@@ -3,7 +3,7 @@
 ########################################################################################################################
 
 # See https://www.rapids.science/latest/setup/configuration/#participant-files
-PIDS: ['UW_001', 'UW_002', 'UW_003', 'UW_004', 'UW_005', 'UW_006', 'UW_007', 'UW_008', 'UW_009', 'UW_010', 'UW_011', 'UW_012', 'UW_013', 'UW_014', 'UW_015', 'UW_016', 'UW_017', 'UW_018', 'UW_019', 'UW_020', 'UW_021', 'UW_022', 'UW_023', 'UW_024', 'UW_025', 'UW_026', 'UW_027', 'UW_028', 'UW_029', 'UW_030', 'UW_031', 'UW_032', 'UW_033', 'UW_034', 'UW_035', 'UW_036', 'UW_037', 'UW_038', 'UW_039', 'UW_040', 'UW_042', 'UW_043', 'UW_044', 'UW_045', 'UW_046', 'UW_047', 'UW_048', 'UW_049', 'UW_050', 'UW_051', 'UW_052', 'UW_053', 'UW_054', 'UW_055', 'UW_057', 'UW_058', 'UW_059', 'UW_060', 'UW_061', 'UW_062', 'UW_063', 'UW_064', 'UW_065', 'UW_066', 'UW_067', 'UW_068', 'UW_069', 'UW_070', 'UW_071', 'UW_072', 'UW_073', 'UW_074', 'UW_075', 'UW_076', 'UW_077', 'UW_078', 'UW_079', 'UW_080', 'UW_081', 'UW_082', 'UW_083', 'UW_084', 'UW_086', 'UW_087', 'UW_088', 'UW_089', 'UW_090', 'UW_091', 'UW_092', 'UW_093', 'UW_094', 'UW_095', 'UW_096', 'UW_097', 'UW_098', 'UW_099', 'UW_100', 'UW_101', 'UW_102', 'UW_103', 'UW_104', 'UW_105', 'UW_106', 'UW_108', 'UW_109', 'UW_110', 'UW_111', 'UW_112', 'UW_113', 'UW_114', 'UW_115', 'UW_116', 'UW_117', 'UW_118', 'UW_119', 'UW_120', 'UW_121', 'UW_122', 'UW_123', 'UW_124', 'UW_125', 'UW_126', 'UW_127', 'UW_128', 'UW_130', 'UW_132', 'UW_133', 'UW_134', 'UW_135', 'UW_136', 'UW_137', 'UW_138', 'UW_140', 'UW_141', 'UW_142', 'UW_143', 'UW_144', 'UW_145', 'UW_146', 'UW_147', 'UW_148', 'UW_149', 'UW_150', 'UW_151', 'UW_152', 'UW_153', 'UW_154', 'UW_155', 'UW_156', 'UW_157', 'UW_158', 'UW_159', 'UW_160', 'UW_161', 'UW_162', 'UW_163', 'UW_165', 'UW_166', 'UW_167', 'UW_168', 'UW_169', 'UW_170', 'UW_171', 'UW_172', 'UW_173', 'UW_174', 'UW_175', 'UW_176', 'UW_177', 'UW_178', 'UW_179', 'UW_180', 'UW_181', 'UW_182', 'UW_183', 'UW_184', 'UW_185', 'UW_186', 'UW_187', 'UW_188', 'UW_189', 'UW_190', 'UW_191', 'UW_192', 'UW_193', 'UW_194', 'UW_195', 'UW_196', 'UW_197', 'UW_198', 'UW_199', 'UW_200', 'UW_201', 'UW_202', 'UW_203', 'UW_204', 'UW_205', 'UW_206', 'UW_207', 'UW_208', 'UW_209']
+PIDS: ['Bertwocane', 'Jennifer', 'Mayki', 'Melissa', 'Nisha', 'Woosuk', 'Yasaman', 'Yuuki', 'Zia']
 
 # See https://www.rapids.science/latest/setup/configuration/#automatic-creation-of-participant-files
 CREATE_PARTICIPANT_FILES:
@@ -21,7 +21,8 @@ CREATE_PARTICIPANT_FILES:
 # See https://www.rapids.science/latest/setup/configuration/#time-segments
 TIME_SEGMENTS: &time_segments
   TYPE: PERIODIC # FREQUENCY, PERIODIC, EVENT
-  FILE: "data/external/timesegments_periodic.csv"
+  # FILE: "data/external/timesegments_periodic.csv"
+  FILE: "data/external/timesegments_default.csv"
   INCLUDE_PAST_PERIODIC_SEGMENTS: FALSE # Only relevant if TYPE=PERIODIC, see docs
 
 # See https://www.rapids.science/latest/setup/configuration/#timezone-of-your-study
