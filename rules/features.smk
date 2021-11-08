@@ -481,7 +481,8 @@ rule app_episodes:
 rule phone_screen_python_features:
     input:
         sensor_episodes = "data/interim/{pid}/phone_screen_episodes_resampled_with_datetime.csv",
-        time_segments_labels = "data/interim/time_segments/{pid}_time_segments_labels.csv"
+        time_segments_labels = "data/interim/time_segments/{pid}_time_segments_labels.csv",
+        location_data = get_screen_locmap_python_input
     params:
         provider = lambda wildcards: config["PHONE_SCREEN"]["PROVIDERS"][wildcards.provider_key.upper()],
         provider_key = "{provider_key}",
