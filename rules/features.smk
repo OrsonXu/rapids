@@ -478,11 +478,21 @@ rule app_episodes:
     script:
         "../src/features/phone_applications_foreground/episodes/app_episodes.R"
 
+rule phone_screen_add_locmap_extra_columns:
+    input:
+        sensor_input_screen = "data/interim/{pid}/phone_screen_episodes_resampled_with_datetime.csv",
+        sensor_input_locmap = "data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes_resampled_with_datetime_with_locmap_columns.csv",
+    params:
+        provider = config["PHONE_SCREEN"]["PROVIDERS"]["RAPIDS"],
+    output: 
+        "data/interim/{pid}/phone_screen_episodes_resampled_with_datetime_with_locmap_columns.csv"
+    script:
+        "../src/features/phone_screen/rapids/add_locmap_extra_columns.py"
+
 rule phone_screen_python_features:
     input:
-        sensor_episodes = "data/interim/{pid}/phone_screen_episodes_resampled_with_datetime.csv",
+        sensor_episodes = get_screen_python_input,
         time_segments_labels = "data/interim/time_segments/{pid}_time_segments_labels.csv",
-        location_data = get_screen_locmap_python_input
     params:
         provider = lambda wildcards: config["PHONE_SCREEN"]["PROVIDERS"][wildcards.provider_key.upper()],
         provider_key = "{provider_key}",

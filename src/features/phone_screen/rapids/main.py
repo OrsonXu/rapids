@@ -25,28 +25,6 @@ def getEpisodeDurationFeatures(screen_data, time_segment, episode, features, ref
         duration_helper = pd.concat([duration_helper, pd.DataFrame(screen_data_episode_after_hour.groupby(["local_segment"])[["local_start_date_time"]].min().local_start_date_time.apply(lambda x: (x.to_pydatetime().hour - reference_hour_first_use) * 60 + x.to_pydatetime().minute + (x.to_pydatetime().second / 60))).rename(columns = {"local_start_date_time":"firstuseafter" + "{0:0=2d}".format(reference_hour_first_use) + episode})], axis = 1)
     return duration_helper
 
-def find_in_locmap(row, location_data_filt, locmap_col):
-    local_segment = row["local_segment"]
-    location_data_locmap = location_data_filt[(location_data_filt[locmap_col] == 1) & (location_data_filt["local_segment"] == local_segment)]
-    start_timestamp = row["start_timestamp"]
-    end_timestamp = row["end_timestamp"]
-    if (location_data_locmap.empty):
-        return False
-    else:
-        # A loose condition
-        # An episode will be considered as long as there is any overlap
-        
-        # # Strategy 1 - This seems to be slow
-        # query = location_data_locmap[(location_data_locmap["start_timestamp"] < end_timestamp) & (location_data_locmap["end_timestamp"] > start_timestamp)]
-        # return not query.empty
-        
-        # Strategy 2 - Can be more efficient
-        for idx, row_locmap in location_data_locmap.iterrows(): 
-            if (start_timestamp < row_locmap["end_timestamp"]) \
-                and (end_timestamp > row_locmap["start_timestamp"]): 
-                return True
-        return False
-
 def rapids_features(sensor_data_files, time_segment, provider, filter_data_by_segment, *args, **kwargs):
 
     screen_data = pd.read_csv(sensor_data_files["sensor_episodes"])
@@ -59,12 +37,7 @@ def rapids_features(sensor_data_files, time_segment, provider, filter_data_by_se
     locmap_compute_flag = provider["LOCMAP_COMPUTE"]
 
     if locmap_compute_flag:
-        location_data_files = sensor_data_files["location_data"]
-        if (not os.path.exists(location_data_files)):
-            raise FileNotFoundError(f"Error: missing files for {locmap_type}. Please turn on Doryab and LocMap Location Providers")
-        location_data = pd.read_csv(location_data_files)
-        location_data_filt = filter_data_by_segment(location_data, time_segment)
-        locmap_columns = [c for c in location_data_filt.columns if c.startswith("locmap_isin_")]
+        locmap_columns = [c for c in screen_data.columns if c.startswith("locmap_isin_")]
     else:
         locmap_columns = []
 
@@ -95,11 +68,10 @@ def rapids_features(sensor_data_files, time_segment, provider, filter_data_by_se
                 screen_features = pd.concat([screen_features, getEpisodeDurationFeatures(screen_data, time_segment, episode, features_episodes_to_compute, reference_hour_first_use)], axis=1)
                 for locmap_col in locmap_columns:
                     locmap_type = locmap_col.split("_")[-1]
-                    screen_data_locmap = screen_data[screen_data["episode"] == episode]
-                    screen_data_locmap[locmap_col] = screen_data_locmap.apply(lambda x : find_in_locmap(x, location_data_filt, locmap_col), axis = 1)
+                    screen_data_locmap = screen_data[(screen_data["episode"] == episode) & (screen_data[locmap_col] == 1)]
                     screen_features_locmap = getEpisodeDurationFeatures(screen_data_locmap, time_segment, episode, features_episodes_to_compute, reference_hour_first_use)
                     screen_features_locmap.columns = [f"{f}_locmap_{locmap_type}" for f in screen_features_locmap]
-                    screen_features = pd.concat([screen_features, screen_features_locmap], axis=1)
+                    screen_features = screen_features.merge(screen_features_locmap, left_index = True, right_index = True, how = "left")
 
         if not screen_features.empty:
             screen_features = screen_features.reset_index()
