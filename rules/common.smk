@@ -29,11 +29,11 @@ def get_locations_python_input(wildcards):
     else:
         return "data/interim/{pid}/phone_locations_processed_with_datetime.csv"
 
-def get_screen_locmap_python_input(wildcards):
+def get_screen_python_input(wildcards):
     if (config["PHONE_SCREEN"]["PROVIDERS"][wildcards.provider_key.upper()]["LOCMAP_COMPUTE"]):
-        return "data/interim/{pid}/phone_locations_processed_with_datetime_with_doryab_columns_episodes_resampled_with_datetime_with_locmap_columns.csv"
+        return "data/interim/{pid}/phone_screen_episodes_resampled_with_datetime_with_locmap_columns.csv"
     else:
-        return ""
+        return "data/interim/{pid}/phone_screen_episodes_resampled_with_datetime.csv"
 
 def get_calls_input(wildcards):
     if (wildcards.provider_key.upper() == "RAPIDS") and (config["PHONE_CALLS"]["PROVIDERS"]["RAPIDS"]["FEATURES_TYPE"] == "EPISODES"):

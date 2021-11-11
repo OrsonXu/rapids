@@ -100,6 +100,8 @@ for provider in config["PHONE_SCREEN"]["PROVIDERS"].keys():
         files_to_compute.extend(expand("data/interim/{pid}/phone_screen_episodes.csv", pid=config["PIDS"]))
         files_to_compute.extend(expand("data/interim/{pid}/phone_screen_episodes_resampled.csv", pid=config["PIDS"]))
         files_to_compute.extend(expand("data/interim/{pid}/phone_screen_episodes_resampled_with_datetime.csv", pid=config["PIDS"]))
+        if config["PHONE_SCREEN"]["PROVIDERS"][provider]["LOCMAP_COMPUTE"]:
+            files_to_compute.extend(expand("data/interim/{pid}/phone_screen_episodes_resampled_with_datetime_with_locmap_columns.csv", pid=config["PIDS"]))
         files_to_compute.extend(expand("data/interim/{pid}/phone_screen_features/phone_screen_{language}_{provider_key}.csv", pid=config["PIDS"], language=get_script_language(config["PHONE_SCREEN"]["PROVIDERS"][provider]["SRC_SCRIPT"]), provider_key=provider.lower()))
         files_to_compute.extend(expand("data/processed/features/{pid}/phone_screen.csv", pid=config["PIDS"]))
         files_to_compute.extend(expand("data/processed/features/{pid}/all_sensor_features.csv", pid=config["PIDS"]))
