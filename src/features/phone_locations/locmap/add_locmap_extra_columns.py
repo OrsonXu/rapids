@@ -65,9 +65,12 @@ for locmap_type in locmaps_to_compute:
     kml_filepath = os.path.join(kml_folder_root, identifier, locmap_type + ".kml")
     ps = polygon_set(kml_filepath)
     if os.path.exists(kml_filepath):
-        location_data[f"locmap_isin_{locmap_type}"] = location_data.apply(
-                lambda row: int(ps.whether_contains_point(Point(row['double_longitude'], row['double_latitude']))),
-            axis=1)
+        if (location_data.empty):
+            location_data[f"locmap_isin_{locmap_type}"] = np.nan
+        else:
+            location_data[f"locmap_isin_{locmap_type}"] = location_data.apply(
+                    lambda row: int(ps.whether_contains_point(Point(row['double_longitude'], row['double_latitude']))),
+                axis=1)
     else:
         raise FileNotFoundError(f"Error: missing files for {locmap_type}")
 
