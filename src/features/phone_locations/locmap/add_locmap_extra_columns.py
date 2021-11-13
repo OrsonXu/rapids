@@ -66,7 +66,7 @@ for locmap_type in locmaps_to_compute:
     ps = polygon_set(kml_filepath)
     if os.path.exists(kml_filepath):
         if (location_data.empty):
-            location_data[f"locmap_isin_{locmap_type}"] = np.nan
+            location_data[f"locmap_isin_{locmap_type}"] = pd.NA
         else:
             location_data[f"locmap_isin_{locmap_type}"] = location_data.apply(
                     lambda row: int(ps.whether_contains_point(Point(row['double_longitude'], row['double_latitude']))),
@@ -74,6 +74,9 @@ for locmap_type in locmaps_to_compute:
     else:
         raise FileNotFoundError(f"Error: missing files for {locmap_type}")
 
-location_data[f"locmap_isin_home"] = location_data.apply(lambda row: 1 if row["distance_from_home"] <= radius_from_home else 0, axis=1)
+if (location_data.empty):
+    location_data[f"locmap_isin_home"] = pd.NA
+else:
+    location_data[f"locmap_isin_home"] = location_data.apply(lambda row: 1 if row["distance_from_home"] <= radius_from_home else 0, axis=1)
 
 location_data.to_csv(snakemake.output[0], index=False)
