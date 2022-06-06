@@ -3,7 +3,7 @@
 ########################################################################################################################
 
 # See https://www.rapids.science/latest/setup/configuration/#participant-files
-PIDS: ['Bertwocane', 'Jennifer', 'Mayki', 'Melissa', 'Nisha', 'Woosuk', 'Yasaman', 'Yuuki', 'Zia']
+PIDS: ['test01']
 
 # See https://www.rapids.science/latest/setup/configuration/#automatic-creation-of-participant-files
 CREATE_PARTICIPANT_FILES:

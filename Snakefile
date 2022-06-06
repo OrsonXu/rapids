@@ -1,6 +1,8 @@
 from snakemake.utils import validate
-configfile: "config_test.yaml"
-# configfile: "config_uwexp_phasei.yaml"
+# configfile: "config_uwexp_phasei_cleaned.yaml"
+# configfile: "config_uwexp_phaseii_cleaned.yaml"
+# configfile: "config_uwexp_phaseiii_cleaned.yaml"
+configfile: "config_uwexp_phaseiv_cleaned.yaml"
 validate(config, "tools/config.schema.yaml")
 include: "rules/common.smk"
 include: "rules/renv.smk"
